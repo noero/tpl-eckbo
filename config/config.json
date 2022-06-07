@@ -1,0 +1,251 @@
+{
+  "categories": [
+    {
+      "name": "Jours de Marché",
+      "places": [
+        {
+          "id": "eck",
+          "name": "Eckbolsheim",
+          "address": "Place de la Mairie",
+          "coordinates": "",
+          "days": [ 6 ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11
+          ]
+        },
+        {
+          "id": "ent",
+          "name": "Entzheim",
+          "address": "Centre Ville",
+          "coordinates": "",
+          "days": [
+            3
+          ],
+          "weeks": [
+            2,
+            4
+          ],
+          "hours": [
+            16,
+            17
+          ]
+        },
+        {
+          "id": "els",
+          "name": "Elsau",
+          "address": "Rue Schongauer",
+          "coordinates": "",
+          "days": [
+            3,
+            6
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11
+          ]
+        },
+        {
+          "id": "lin",
+          "name": "Lingolsheim",
+          "address": "Place de la Mairie",
+          "coordinates": "",
+          "days": [
+            5
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11
+          ]
+        },
+        {
+          "id": "ost",
+          "name": "Ostwald",
+          "address": "Rue René Cassin",
+          "coordinates": "",
+          "days": [
+            5
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            14,
+            15
+          ]
+        },
+        {
+          "id": "roet",
+          "name": "Roethig",
+          "address": "Place d'Ostwald",
+          "coordinates": "",
+          "days": [
+            4
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Points Libres",
+      "places": [
+        {
+          "id": "mamt",
+          "name": "Musée d'Art M. - Tram",
+          "address": "Rue de Molsheim",
+          "coordinates": "",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11,
+            14,
+            15
+          ]
+        },
+        {
+          "id": "mamp",
+          "name": "Musée d'Art M. - Place",
+          "address": "Place Hans Jean Arp",
+          "coordinates": "",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11,
+            14,
+            15
+          ]
+        },
+        {
+          "id": "mvt",
+          "name": "Montagne Verte - Tram",
+          "address": "Route de Schirmeck",
+          "coordinates": "",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11,
+            14,
+            15
+          ]
+        },
+        {
+          "id": "rdr",
+          "name": "Route des Romain",
+          "address": "112 Route des Romains",
+          "coordinates": "",
+          "days": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6,
+            7
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            10,
+            11,
+            14,
+            15
+          ]
+        }
+      ]
+    }
+  ]
+}
