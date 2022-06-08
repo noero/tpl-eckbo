@@ -110,14 +110,14 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow mr-2 ml-2">
-                            <a href="#" id="prev_js" class="btn btn-primary">
+                            <a href="javascript:;" id="prev_js" class="btn btn-primary">
                                 <span class="icon">
                                     <i class="fas fa-arrow-left"></i>
                                 </span>
                             </a>
                         </li>
                         <li class="nav-item dropdown no-arrow mr-2">
-                            <a href="#" id="next_js" class="btn btn-primary">
+                            <a href="javascript:;" id="next_js" class="btn btn-primary">
                                 <span class="icon">
                                     <i class="fas fa-arrow-right"></i>
                                 </span>
@@ -163,6 +163,14 @@
         <i class="fas fa-angle-up"></i>
     </a>
 
+    <div id="myModal" class="modal">
+
+        <!-- Modal content -->
+        <div id="modal_js" class="modal-content rounded border-left-danger">
+        </div>
+
+    </div>
+
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
@@ -170,12 +178,24 @@
 
     <!-- Core plugin JavaScript-->
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
 
     <!-- Custom scripts for all pages-->
+    <script>
+        // Initialize Firebase
+        let firebaseConfig = {
+            apiKey: "AIzaSyCJUBpdCozznOYKnYbPljRJz9_-IEt1s2Q",
+            authDomain: "tpl-eckbo-86993.firebaseapp.com",
+            databaseURL: "https://tpl-eckbo-86993-default-rtdb.europe-west1.firebasedatabase.app",
+            projectId: "tpl-eckbo-86993",
+            storageBucket: "tpl-eckbo-86993.appspot.com",
+            messagingSenderId: "344570835130",
+            appId: "1:344570835130:web:9e90fd1fa00948e75e5283"
+        };
+        firebase.initializeApp(firebaseConfig);
+    </script>
     <script src="js/sb-admin-2.min.js"></script>
-
-    <script src='js/fullcalendar/main.js'></script>
-    <script src='js/fullcalendar/locales/fr.js'></script>
     <script src="js/main.js"></script>
 
 </body>
