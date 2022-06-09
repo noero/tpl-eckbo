@@ -85,12 +85,13 @@ p, a, a>span, a>i {
 .modal-content {
     position: relative;
     background-color: #fefefe;
-    margin: 15% auto;
+    margin: 25% auto;
     padding: 0;
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
     animation-name: animatetop;
     animation-duration: 0.4s;
     width: 400px;
+    z-index: 2;
 }
 
 /* Add Animation */
@@ -114,9 +115,22 @@ p, a, a>span, a>i {
     position: -webkit-sticky;
     position: sticky;
     top: 0;
-    z-index: 2;
+    z-index: 4;
 }
 
 #content-wrapper {
     overflow: visible !important;
+}
+
+#collapseCalendars {
+    z-index: 3;
+}
+
+#accordionSidebar {
+    z-index: 4;
+}
+
+.anchor {
+    padding-top: 90px;
+    margin-top: -70px;
 }
