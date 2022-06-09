@@ -104,11 +104,26 @@ p, a, a>span, a>i {
     width: 48px;
 }
 
-.sidebar {
-    position: -webkit-sticky;
-    position: sticky;
-    top: 0;
-    height: 100vh;
+@media (min-width: 768px) {
+    .sidebar {
+        position: -webkit-sticky;
+        position: sticky;
+        top: 0;
+        height: 100vh;
+    }
+    /*.d-md-flex {*/
+    /*    display: flex !important;*/
+    /*}*/
+}
+
+@media (max-width: 768px) {
+    .sidebar {
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        padding-top: 5.875rem;
+        box-shadow: 0.5rem 0 1rem rgba(0,0,0,.25) !important;
+    }
 }
 
 .topbar {
@@ -134,3 +149,11 @@ p, a, a>span, a>i {
     padding-top: 5.875rem;
     margin-top: -5.875rem;
 }
+
+.shadow {
+    box-shadow: 0 .5rem 1rem rgba(0,0,0,.25) !important
+}
+
+/*.d-none {*/
+/*    display: none !important;*/
+/*}*/

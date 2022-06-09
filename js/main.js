@@ -127,11 +127,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             Array.from(document.getElementsByClassName('hide_sidebar')).forEach(function(element) {
                 element.addEventListener("click", function() {
-                    console.log("clicked")
-                    $("body").toggleClass("sidebar-toggled");
-                    $(".sidebar").toggleClass("toggled");
-                    if ($(".sidebar").hasClass("toggled")) {
-                        $('.sidebar .collapse').collapse('hide');
+                    if ($(window).width() < 768) {
+                        $("body").toggleClass("sidebar-toggled");
+                        $(".sidebar").toggleClass("toggled");
+                        if ($(".sidebar").hasClass("toggled")) {
+                            $('.sidebar .collapse').collapse('hide');
+                        }
                     }
                 });
             });
