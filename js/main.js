@@ -123,9 +123,9 @@ $.getJSON('config/config.json', function(data) {
                                             </table>
                                         </div>
                                     </div>
-<!--                                        <div class="col-auto">-->
-<!--                                            <i class="fas fa-map-marked-alt fa-2x"></i>-->
-<!--                                        </div>-->
+                                        <div class="col-auto">
+                                            <i class="fas fa-map-marked-alt fa-2x"></i>
+                                        </div>
                                 </div>
                             </div>
                         </div>
@@ -306,21 +306,22 @@ $.getJSON('config/config.json', function(data) {
 
     }
 
-    // Hide modal on click TODO don't work
-    window.onclick = function(event) {
-        if (event.target === modal) {
-            modal.css('display', "none");
-        }
+});
+
+// Hide modal on click
+$(window).click(function(event) {
+    let mod = document.getElementById("myModal");
+    if (event.target === mod) {
+        modal.css('display', "none");
     }
+});
 
-    // Hide sidebar on scroll on mobile devices
-    $('#cards_js').on('touchstart', function (){
-        if (!sidebar.hasClass("toggled")) {
-            sidebar.toggleClass("toggled");
-            $('.sidebar .collapse').collapse('hide');
-        }
-    });
-
+// Hide sidebar on scroll on mobile devices
+$('#cards_js').on('touchstart', function (){
+    if (!sidebar.hasClass("toggled")) {
+        sidebar.toggleClass("toggled");
+        $('.sidebar .collapse').collapse('hide');
+    }
 });
 
 // Useful function to format string
