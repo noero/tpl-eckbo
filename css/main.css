@@ -112,14 +112,14 @@ p, a, a>span, a>i {
 }
 
 .topbar {
-    position: -webkit-sticky;
-    position: sticky;
+    position: fixed;
     top: 0;
+    width: 100%;
     z-index: 4;
 }
 
 #content-wrapper {
-    overflow: visible !important;
+    padding-top: 5.875rem;
 }
 
 #collapseCalendars {
@@ -131,6 +131,6 @@ p, a, a>span, a>i {
 }
 
 .anchor {
-    padding-top: 90px;
-    margin-top: -70px;
+    padding-top: 5.875rem;
+    margin-top: -5.875rem;
 }
