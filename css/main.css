@@ -102,3 +102,21 @@ p, a, a>span, a>i {
 .btn_modal{
     width: 48px;
 }
+
+.sidebar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    height: 100vh;
+}
+
+.topbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+}
+
+#content-wrapper {
+    overflow: visible !important;
+}

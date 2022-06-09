@@ -48,7 +48,7 @@ document.addEventListener('DOMContentLoaded', function() {
             for (let category of datajson.categories) {
                 cal_menu_html += `<h6 class="collapse-header">${category.name} :</h6>`;
                 for (let place of category.places) {
-                    cal_menu_html += `<a class="collapse-item" href="#${place.id}_cal">${place.name}</a>`;
+                    cal_menu_html += `<a class="collapse-item hide_sidebar" href="#${place.id}_cal">${place.name}</a>`;
                     let hours_html = '';
                     for (let hour of place.hours){
                         hours_html += `<th scope="col">${hour}h - ${hour + 1}h</th>`;
@@ -124,6 +124,18 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
             }
             document.getElementById("calendars_menu_js").innerHTML = cal_menu_html;
+
+            Array.from(document.getElementsByClassName('hide_sidebar')).forEach(function(element) {
+                element.addEventListener("click", function() {
+                    console.log("clicked")
+                    $("body").toggleClass("sidebar-toggled");
+                    $(".sidebar").toggleClass("toggled");
+                    if ($(".sidebar").hasClass("toggled")) {
+                        $('.sidebar .collapse').collapse('hide');
+                    }
+                });
+            });
+
             document.getElementById("cards_js").innerHTML = cal_card_html;
 
             for (let id of ids){
