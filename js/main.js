@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Modal info
     let modal = document.getElementById("myModal");
 
-    $.getJSON('config/config.json', function(data) {
+    $.getJSON('config/config.json', function(datajson) {
 
         // DATE
         document.getElementById("date_js").innerText = months[month] + " " + year;
@@ -44,36 +44,36 @@ document.addEventListener('DOMContentLoaded', function() {
             let i = 0;
             let xxl;
             let lg;
-            let first_day_of_month = get_first_day_of_month();
             let ids = [];
-            for (let category of data.categories){
+            for (let category of datajson.categories) {
                 cal_menu_html += `<h6 class="collapse-header">${category.name} :</h6>`;
-                for (let place of category.places){
+                for (let place of category.places) {
                     cal_menu_html += `<a class="collapse-item" href="#${place.id}_cal">${place.name}</a>`;
                     let hours_html = '';
                     for (let hour of place.hours){
                         hours_html += `<th scope="col">${hour}h - ${hour + 1}h</th>`;
                     }
                     let days_html = '';
-                    for (let week of place.weeks)
-                        for (let day of place.days){
-                            // TODO ${week}eme ${days[day-1]} du mois (voir Entzheim)
-                            let day_date = day - first_day_of_month + 1 + (7 * (week - 1))
-                            if ( day_date < 1 ) { continue }
-                            if ( day_date > new Date(year, month + 1, -1).getDate()+1) { continue; }
-                            let check_html = '';
-                            for (let hour of place.hours){
-                                let id = `${place.id}_${year}_${month + 1}_${day_date}_${hour}`;
-                                check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
-                                ids.push(id);
-                            }
-                            days_html += `
+                    for (let d = 1; d <= new Date(year, month + 1, -1).getDate() + 1; d++) {
+                        let tmp_day = new Date(year, month, d).getDay();
+                        if (tmp_day === 0) { tmp_day = 7; }
+                        if (place.days.includes(tmp_day)){
+                            if (place.weeks.includes((Math.floor(d / 7) + 1))){
+                                let check_html = '';
+                                for (let hour of place.hours) {
+                                    let id = `${place.id}_${year}_${month + 1}_${d}_${hour}`;
+                                    check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
+                                    ids.push(id);
+                                }
+                                days_html += `
                                     <tr>
-                                        <td class="text-right">${days[day - 1]} ${("0" + day_date).slice(-2)}</td>
+                                        <td class="text-right">${days[tmp_day - 1]} ${("0" + d).slice(-2)}</td>
                                         ${check_html}
                                     </tr>
-                                `
+                                `;
+                            }
                         }
+                    }
                     if (place.hours.length < 3){
                         i++;
                         xxl = 4;
@@ -109,9 +109,9 @@ document.addEventListener('DOMContentLoaded', function() {
                                                 </table>
                                             </div>
                                         </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-map-marked-alt fa-2x"></i>
-                                        </div>
+<!--                                        <div class="col-auto">-->
+<!--                                            <i class="fas fa-map-marked-alt fa-2x"></i>-->
+<!--                                        </div>-->
                                     </div>
                                 </div>
                             </div>
@@ -146,7 +146,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     if (day_js === 0) { day_js = 7 }
                     let date = days[day_js - 1] + ' ' + date_js.getDate() + ' ' + months[date_js.getMonth()] + ' ' + date_js.getFullYear()
                     let lieu = null;
-                    for (let category of data.categories) {
+                    for (let category of datajson.categories) {
                         for (let place of category.places) {
                             if (place.id === id.split('_')[0]) { lieu = place.name + ' (' + place.address + ')'}
                         }
@@ -294,12 +294,3 @@ document.addEventListener('DOMContentLoaded', function() {
 
     });
 });
-
-function get_first_day_of_month() {
-    let first_day_of_month = new Date(year, month, 1);
-    first_day_of_month = first_day_of_month.getDay();
-    if (first_day_of_month === 0) {
-        first_day_of_month = 7
-    }
-    return first_day_of_month
-}
