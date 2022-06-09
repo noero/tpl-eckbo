@@ -304,5 +304,12 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         }
 
+        $('#cards_js').on('touchstart', function (){
+            if (!$(".sidebar").hasClass("toggled")) {
+                $(".sidebar").toggleClass("toggled");
+                $('.sidebar .collapse').collapse('hide');
+            }
+        });
+
     });
 });

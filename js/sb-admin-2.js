@@ -36,10 +36,6 @@
 
   // Scroll to top button appear
   $(document).on('scroll', function() {
-    if (!$(".sidebar").hasClass("toggled")) {
-      $(".sidebar").toggleClass("toggled");
-      $('.sidebar .collapse').collapse('hide');
-    }
     let scrollDistance = $(this).scrollTop();
     if (scrollDistance > 100) {
       $('.scroll-to-top').fadeIn();
