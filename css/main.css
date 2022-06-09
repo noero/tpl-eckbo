@@ -111,9 +111,6 @@ p, a, a>span, a>i {
         top: 0;
         height: 100vh;
     }
-    /*.d-md-flex {*/
-    /*    display: flex !important;*/
-    /*}*/
 }
 
 @media (max-width: 768px) {
@@ -153,7 +150,3 @@ p, a, a>span, a>i {
 .shadow {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.25) !important
 }
-
-/*.d-none {*/
-/*    display: none !important;*/
-/*}*/
