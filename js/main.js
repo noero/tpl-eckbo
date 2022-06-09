@@ -63,7 +63,6 @@ document.addEventListener('DOMContentLoaded', function() {
                             if ( day_date > new Date(year, month + 1, -1).getDate()+1) { continue; }
                             let check_html = '';
                             for (let hour of place.hours){
-                                // TODO Link Checkbox with firebase
                                 let id = `${place.id}_${year}_${month + 1}_${day_date}_${hour}`;
                                 check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
                                 ids.push(id);
