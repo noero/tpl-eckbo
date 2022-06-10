@@ -123,9 +123,9 @@ $.getJSON('config/config.json', function(data) {
                                             </table>
                                         </div>
                                     </div>
-                                        <div class="col-auto">
-                                            <i class="fas fa-map-marked-alt fa-2x"></i>
-                                        </div>
+<!--                                    <div class="col-auto">-->
+<!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
+<!--                                    </div>-->
                                 </div>
                             </div>
                         </div>
