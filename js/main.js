@@ -317,7 +317,7 @@ $(window).click(function(event) {
 });
 
 // Hide sidebar on scroll on mobile devices
-$('#cards_js').on('touchstart', function (){
+$('#cards_el').on('touchstart', function (){
     if (!sidebar.hasClass("toggled")) {
         sidebar.toggleClass("toggled");
         $('.sidebar .collapse').collapse('hide');
