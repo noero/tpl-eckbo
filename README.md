@@ -1,6 +1,6 @@
 # tpl-eckbo
 
-tpl-eckbo est un site internet permettant la gestion du programme de témoignage publique (TPL) d'une assemblée locale (ici Strasbourg Eckbolsheim).  
+"tpl-eckbo" est un site internet permettant la gestion du programme de témoignage publique (TPL) d'une assemblée locale (ici Strasbourg Eckbolsheim).  
 Ce site ne détient aucune données personnelles.
 
 ## Configuration
@@ -43,5 +43,5 @@ Voici une page d'aide pour créer une base de données Firebase [ici](https://fi
 ## Utilisation
 
 Les compagnons ayant accès au site pourront réserver un créneau tout en s'assurant de sa disponibilité.  
-Le site ne gère pas la recherche et association d'un coéquipier, ni ne possède pas de fonction de rappel.  
+Le site ne gère pas la recherche et association d'un coéquipier, ni ne possède de fonction de rappel.  
 Cela reste à la charge des compagnons.
