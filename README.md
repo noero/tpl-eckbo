@@ -1,6 +1,6 @@
 # tpl-eckbo
 
-"tpl-eckbo" est un site internet permettant la gestion du programme de témoignage publique (TPL) d'une assemblée locale (ici Strasbourg Eckbolsheim).  
+"tpl-eckbo" est un site internet permettant la gestion du programme de témoignage public (TPL) d'une assemblée locale (ici Strasbourg Eckbolsheim).  
 Ce site ne détient aucune données personnelles.
 
 ## Configuration
