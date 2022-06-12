@@ -5,7 +5,16 @@ const ref = firebase.database().ref(`slots`);
 // Date
 let months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
 let days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
+let days_short = ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'];
+let days_list = [];
+if ($(window).width() < 320) {
+    days_list = days_short;
+} else {
+    days_list = days;
+}
+
 let time = new Date();
+let yesterday = time.setDate(time.getDate() - 1)
 let month = time.getMonth();
 let year = time.getFullYear();
 
@@ -69,22 +78,25 @@ $.getJSON('config/config.json', function(data) {
                 }
                 let days_html = '';
                 for (let d = 1; d <= new Date(year, month + 1, -1).getDate() + 1; d++) {
-                    let tmp_day = new Date(year, month, d).getDay();
-                    if (tmp_day === 0) { tmp_day = 7; }
-                    if (place.days.includes(tmp_day)){
-                        if (place.weeks.includes((Math.floor(d / 7) + 1))){
-                            let check_html = '';
-                            for (let hour of place.hours) {
-                                let id = `${place.id}_${year}_${month + 1}_${d}_${hour}`;
-                                check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
-                                ids.push(id);
+                    let tmp_date = new Date(year, month, d);
+                    if (tmp_date > yesterday) {
+                        let tmp_day = tmp_date.getDay();
+                        if (tmp_day === 0) { tmp_day = 7; }
+                        if (place.days.includes(tmp_day)){
+                            if (place.weeks.includes((Math.floor(d / 7) + 1))){
+                                let check_html = '';
+                                for (let hour of place.hours) {
+                                    let id = `${place.id}_${year}_${month + 1}_${d}_${hour}`;
+                                    check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
+                                    ids.push(id);
+                                }
+                                days_html += `
+                                    <tr>
+                                        <td class="text-right">${days_list[tmp_day - 1]} ${("0" + d).slice(-2)}</td>
+                                        ${check_html}
+                                    </tr>
+                                `;
                             }
-                            days_html += `
-                                <tr>
-                                    <td class="text-right">${days[tmp_day - 1]} ${("0" + d).slice(-2)}</td>
-                                    ${check_html}
-                                </tr>
-                            `;
                         }
                     }
                 }
@@ -240,7 +252,7 @@ $.getJSON('config/config.json', function(data) {
                             modal.css('display', "none");
                             let title = 'MERCI BEAUCOUP'
                             let text = `
-                                <p>Merci d'avoir réserver ce créneau TPL.</p>
+                                <p>Merci d'avoir réservé ce créneau TPL.</p>
                                 <p>Pour rappel, il s'agit du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
                                 <p>N'oublie pas de l'inscrire dans ton calendrier et de prévenir ton coéquipier.</p>
                                 <p>Bonne prédication !</p> 
@@ -280,7 +292,7 @@ $.getJSON('config/config.json', function(data) {
                     // Delete modal
                     let title = 'ATTENTION'
                     let text = `
-                        <p>Tu es sur le point supprimer cette réservation pour le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
+                        <p>Tu es sur le point de supprimer cette réservation pour le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
                         <p>Veux-tu le supprimer ?</p>
                     `;
                     modal_el.html(html_modal_model.format(
