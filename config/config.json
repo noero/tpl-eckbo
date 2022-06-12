@@ -40,13 +40,12 @@
           ]
         },
         {
-          "id": "els",
-          "name": "Elsau",
-          "address": "Rue Schongauer",
+          "id": "lin",
+          "name": "Lingolsheim",
+          "address": "Rue Maréchal Foch",
           "coordinates": "",
           "days": [
-            3,
-            6
+            5
           ],
           "weeks": [
             1,
@@ -62,11 +61,12 @@
           ]
         },
         {
-          "id": "lin",
-          "name": "Lingolsheim",
-          "address": "Rue Maréchal Foch",
+          "id": "mamp",
+          "name": "Musée d'Art M. - Place",
+          "address": "Place Hans Jean Arp",
           "coordinates": "",
           "days": [
+            3,
             5
           ],
           "weeks": [
@@ -137,38 +137,7 @@
           "days": [
             1,
             2,
-            3,
             4,
-            5,
-            6,
-            7
-          ],
-          "weeks": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "hours": [
-            10,
-            11,
-            15,
-            16
-          ]
-        },
-        {
-          "id": "mamp",
-          "name": "Musée d'Art M. - Place",
-          "address": "Place Hans Jean Arp",
-          "coordinates": "",
-          "days": [
-            1,
-            2,
-            3,
-            4,
-            5,
             6,
             7
           ],
