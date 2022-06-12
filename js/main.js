@@ -64,6 +64,8 @@ $.getJSON('config/config.json', function(data) {
         let xxl;
         let lg;
         let ids = [];
+        let spots_by_place = 0;
+        let total_spots = 0;
 
         // Parsing categories
         for (let category of data.categories) {
@@ -89,6 +91,8 @@ $.getJSON('config/config.json', function(data) {
                                     let id = `${place.id}_${year}_${month + 1}_${d}_${hour}`;
                                     check_html += `<td><input class="form-check-input" type="checkbox" id="${id}" value="" aria-label="..."></td>`;
                                     ids.push(id);
+                                    spots_by_place++;
+                                    total_spots++;
                                 }
                                 days_html += `
                                     <tr>
@@ -110,44 +114,84 @@ $.getJSON('config/config.json', function(data) {
                     lg = 12;
                 }
                 if ( i <= 1.5 ) { cal_card_html += `<div class="row">`; }
-                cal_card_html += `
-                    <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4 anchor">
-                        <div class="card border-left-primary shadow h-100 py-2">
-                            <div class="card-body">
-                                <div class="row no-gutters align-items-up">
-                                    <div class="col mr-2">
-                                        <div class="font-weight-bold text-primary text-uppercase mb-2">
-                                            ${place.name}
-                                        <span class="text-dark font-weight-normal text-capitalize mb-1">
-                                            - ${place.address}</span>
+                if (spots_by_place > 0) {
+                    cal_card_html += `
+                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4 anchor">
+                            <div class="card border-left-primary shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-up">
+                                        <div class="col mr-2">
+                                            <div class="font-weight-bold text-primary text-uppercase mb-2">
+                                                ${place.name}
+                                            <span class="text-dark font-weight-normal text-capitalize mb-1">
+                                                - ${place.address}</span>
+                                            </div>
+                                            <div class="h6 mb-0">
+                                                <table class="table text-center">
+                                                    <thead>
+                                                    <tr>
+                                                        <th scope="col"></th>
+                                                        ${hours_html}
+                                                    </tr>
+                                                    </thead>
+                                                    <tbody class="table-group-divider">
+                                                    ${days_html}
+                                                    </tbody>
+                                                </table>
+                                            </div>
                                         </div>
-                                        <div class="h6 mb-0">
-                                            <table class="table text-center">
-                                                <thead>
-                                                <tr>
-                                                    <th scope="col"></th>
-                                                    ${hours_html}
-                                                </tr>
-                                                </thead>
-                                                <tbody class="table-group-divider">
-                                                ${days_html}
-                                                </tbody>
-                                            </table>
-                                        </div>
+    <!--                                    <div class="col-auto">-->
+    <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
+    <!--                                    </div>-->
                                     </div>
-<!--                                    <div class="col-auto">-->
-<!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
-<!--                                    </div>-->
                                 </div>
                             </div>
                         </div>
-                    </div>
-                `;
+                    `;
+                } else {
+                    cal_card_html += `
+                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4 anchor">
+                            <div class="card border-left-danger shadow h-100 py-2">
+                                <div class="card-body">
+                                    <div class="row no-gutters align-items-up">
+                                        <div class="col mr-2">
+                                            <div class="font-weight-bold text-primary text-uppercase mb-2">
+                                                ${place.name}
+                                            <span class="text-dark font-weight-normal text-capitalize mb-1">
+                                                - ${place.address}</span>
+                                            </div>
+                                            <div class="h3 mb-0 text-center mt-3">
+                                                Plus aucun créneau ce mois-ci
+                                            </div>
+                                        </div>
+    <!--                                    <div class="col-auto">-->
+    <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
+    <!--                                    </div>-->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    `;
+                }
                 if (i === 3 || (window.innerWidth < 1400 && i ===2)){
                     cal_card_html += `</div>`;
                     i = 0;
                 }
             }
+            spots_by_place = 0;
+        }
+        if (total_spots === 0){
+            cal_card_html = `
+                <div class="row">
+                <div class="col mb-4 anchor ">
+                    <div class="card text-center h3 border-left-danger">
+                        <div class="card-body mb-auto mt-auto">
+                            Plus aucun créneau ce mois-ci
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            `;
         }
         calendars_menu_el.html(cal_menu_html);
         cards_el.html(cal_card_html);
@@ -329,7 +373,15 @@ $(window).click(function(event) {
 });
 
 // Hide sidebar on scroll on mobile devices
-$('#cards_el').on('touchstart', function (){
+cards_el.on('touchstart', function (){
+    if (!sidebar.hasClass("toggled")) {
+        sidebar.toggleClass("toggled");
+        $('.sidebar .collapse').collapse('hide');
+    }
+});
+
+// Hide sidebar on scroll on mobile devices
+cards_el.on('click', function (){
     if (!sidebar.hasClass("toggled")) {
         sidebar.toggleClass("toggled");
         $('.sidebar .collapse').collapse('hide');
