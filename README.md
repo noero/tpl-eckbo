@@ -53,7 +53,7 @@ Ajouter une authentification "Anonyme" au projet.
 
 ###### Configuration de la clé API
 
-Accéder au [Google Cloud Platform](https://console.cloud.google.com) de votre compte Gmail, dans le menu "API et services" > "Identifiants", 
+Accéder au [Google Cloud Platform](https://console.cloud.google.com) de votre compte Gmail. Dans le menu "API et services" > "Identifiants", 
 paramétrer votre API Key avec une restriction lié à votre nom de domaine (URL de provenance HTTP).
 
 ## Utilisation
