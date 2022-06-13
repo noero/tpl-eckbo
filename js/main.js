@@ -116,7 +116,7 @@ $.getJSON('config/config.json', function(data) {
                 if ( i <= 1.5 ) { cal_card_html += `<div class="row">`; }
                 if (spots_by_place > 0) {
                     cal_card_html += `
-                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4 anchor">
+                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-up">
@@ -150,7 +150,7 @@ $.getJSON('config/config.json', function(data) {
                     `;
                 } else {
                     cal_card_html += `
-                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4 anchor">
+                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
                             <div class="card border-left-danger shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-up">
@@ -183,7 +183,7 @@ $.getJSON('config/config.json', function(data) {
         if (total_spots === 0){
             cal_card_html = `
                 <div class="row">
-                <div class="col mb-4 anchor ">
+                <div class="col mb-4 ">
                     <div class="card text-center h3 border-left-danger">
                         <div class="card-body mb-auto mt-auto">
                             Plus aucun créneau ce mois-ci
