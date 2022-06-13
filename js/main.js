@@ -7,7 +7,7 @@ let months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 
 let days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
 let days_short = ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'];
 let days_list = [];
-if ($(window).width() < 320) {
+if ($(window).width() < 370) {
     days_list = days_short;
 } else {
     days_list = days;
