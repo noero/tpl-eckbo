@@ -38,7 +38,23 @@ Ce fichier suit l'arborescence suivante :
 
 Créer une base de données en temps réel Firebase et inscrire les informations fournies (*firebaseConfig*) dans le fichier *__index.html__*.  
 Voici une page d'aide pour créer une base de données Firebase [ici](https://firebase.google.com/docs/database/web/start#create_a_database).
+Ajouter une authentification "Anonyme" au projet.
 
+###### Configuration des règles de la BDD
+
+```
+{
+  "rules": {
+    ".read": "auth.uid != null",
+    ".write": "auth.uid != null",
+  }
+}
+```
+
+###### Configuration de la clé API
+
+Accéder au [Google Cloud Platform](https://console.cloud.google.com) de votre compte Gmail, dans le menu "API et services" > "Identifiants", 
+paramétrer votre API Key avec une restriction lié à votre nom de domaine (URL de provenance HTTP).
 
 ## Utilisation
 
