@@ -145,3 +145,7 @@ p, a, a>span, a>i {
 .shadow {
     box-shadow: 0 .5rem 1rem rgba(0,0,0,.25) !important
 }
+
+#wrapper {
+    min-height: 100vh;
+}
