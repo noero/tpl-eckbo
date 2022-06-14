@@ -36,7 +36,7 @@ Ce fichier suit l'arborescence suivante :
 
 #### Une base de données Firebase
 
-Créer une base de données en temps réel Firebase et inscrire les informations fournies (*firebaseConfig*) dans le fichier *__index.html__*.  
+Créer une base de données en temps réel Firebase et inscrire les informations fournies (*firebaseConfig*) dans le fichier *__js/mains.js__*.  
 Voici une page d'aide pour créer une base de données Firebase [ici](https://firebase.google.com/docs/database/web/start#create_a_database).
 Ajouter une authentification "Anonyme" au projet.
 

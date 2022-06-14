@@ -395,14 +395,6 @@ app.auth().signInAnonymously()
             }
         });
 
-// Hide sidebar on scroll on mobile devices
-        cards_el.on('click', function (){
-            if (!sidebar.hasClass("toggled")) {
-                sidebar.toggleClass("toggled");
-                $('.sidebar .collapse').collapse('hide');
-            }
-        });
-
 // Useful function to format string
         String.prototype.format = function () {
             var args = arguments;
