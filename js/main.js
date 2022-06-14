@@ -9,6 +9,8 @@ let firebaseConfig = {
     appId: "1:344570835130:web:9e90fd1fa00948e75e5283"
 };
 let app = firebase.initializeApp(firebaseConfig);
+let debug = false;
+let triggered = 0;
 
 // Auth
 app.auth().signInAnonymously()
@@ -96,7 +98,7 @@ app.auth().signInAnonymously()
                         let days_html = '';
                         for (let d = 1; d <= new Date(year, month + 1, -1).getDate() + 1; d++) {
                             let tmp_date = new Date(year, month, d);
-                            if (tmp_date > yesterday) {
+                            if (tmp_date > yesterday || debug === true) {
                                 let tmp_day = tmp_date.getDay();
                                 if (tmp_day === 0) { tmp_day = 7; }
                                 if (place.days.includes(tmp_day)){
@@ -110,11 +112,11 @@ app.auth().signInAnonymously()
                                             total_spots++;
                                         }
                                         days_html += `
-                                    <tr>
-                                        <td class="text-right">${days_list[tmp_day - 1]} ${("0" + d).slice(-2)}</td>
-                                        ${check_html}
-                                    </tr>
-                                `;
+                                            <tr>
+                                                <td class="text-right">${days_list[tmp_day - 1]} ${("0" + d).slice(-2)}</td>
+                                                ${check_html}
+                                            </tr>
+                                        `;
                                     }
                                 }
                             }
@@ -131,62 +133,62 @@ app.auth().signInAnonymously()
                         if ( i <= 1.5 ) { cal_card_html += `<div class="row">`; }
                         if (spots_by_place > 0) {
                             cal_card_html += `
-                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
-                            <div class="card border-left-primary shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-up">
-                                        <div class="col mr-2">
-                                            <div class="font-weight-bold text-primary text-uppercase mb-2">
-                                                ${place.name}
-                                            <span class="text-dark font-weight-normal text-capitalize mb-1">
-                                                - ${place.address}</span>
-                                            </div>
-                                            <div class="h6 mb-0">
-                                                <table class="table text-center">
-                                                    <thead>
-                                                    <tr>
-                                                        <th scope="col"></th>
-                                                        ${hours_html}
-                                                    </tr>
-                                                    </thead>
-                                                    <tbody class="table-group-divider">
-                                                    ${days_html}
-                                                    </tbody>
-                                                </table>
+                                <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
+                                    <div class="card border-left-primary shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-up">
+                                                <div class="col mr-2">
+                                                    <div class="font-weight-bold text-primary text-uppercase mb-2">
+                                                        ${place.name}
+                                                    <span class="text-dark font-weight-normal text-capitalize mb-1">
+                                                        - ${place.address}</span>
+                                                    </div>
+                                                    <div class="h6 mb-0">
+                                                        <table class="table text-center">
+                                                            <thead>
+                                                            <tr>
+                                                                <th scope="col"></th>
+                                                                ${hours_html}
+                                                            </tr>
+                                                            </thead>
+                                                            <tbody class="table-group-divider">
+                                                            ${days_html}
+                                                            </tbody>
+                                                        </table>
+                                                    </div>
+                                                </div>
+            <!--                                    <div class="col-auto">-->
+            <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
+            <!--                                    </div>-->
                                             </div>
                                         </div>
-    <!--                                    <div class="col-auto">-->
-    <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
-    <!--                                    </div>-->
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    `;
+                            `;
                         } else {
                             cal_card_html += `
-                        <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
-                            <div class="card border-left-danger shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-up">
-                                        <div class="col mr-2">
-                                            <div class="font-weight-bold text-primary text-uppercase mb-2">
-                                                ${place.name}
-                                            <span class="text-dark font-weight-normal text-capitalize mb-1">
-                                                - ${place.address}</span>
-                                            </div>
-                                            <div class="h3 mb-0 text-center mt-3">
-                                                Plus aucun créneau ce mois-ci
+                                <div id="${place.id}_cal" class="col-xxl-${xxl} col-lg-${lg} col-md-12 mb-4">
+                                    <div class="card border-left-danger shadow h-100 py-2">
+                                        <div class="card-body">
+                                            <div class="row no-gutters align-items-up">
+                                                <div class="col mr-2">
+                                                    <div class="font-weight-bold text-primary text-uppercase mb-2">
+                                                        ${place.name}
+                                                    <span class="text-dark font-weight-normal text-capitalize mb-1">
+                                                        - ${place.address}</span>
+                                                    </div>
+                                                    <div class="h3 mb-0 text-center mt-3">
+                                                        Plus aucun créneau ce mois-ci
+                                                    </div>
+                                                </div>
+            <!--                                    <div class="col-auto">-->
+            <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
+            <!--                                    </div>-->
                                             </div>
                                         </div>
-    <!--                                    <div class="col-auto">-->
-    <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
-    <!--                                    </div>-->
                                     </div>
                                 </div>
-                            </div>
-                        </div>
-                    `;
+                            `;
                         }
                         if (i === 3 || (window.innerWidth < 1400 && i ===2)){
                             cal_card_html += `</div>`;
@@ -195,18 +197,18 @@ app.auth().signInAnonymously()
                     }
                     spots_by_place = 0;
                 }
-                if (total_spots === 0){
+                if (total_spots === 0 && debug === false){
                     cal_card_html = `
-                <div class="row">
-                <div class="col mb-4 ">
-                    <div class="card text-center h3 border-left-danger">
-                        <div class="card-body mb-auto mt-auto">
-                            Plus aucun créneau ce mois-ci
+                        <div class="row">
+                        <div class="col mb-4 ">
+                            <div class="card text-center h3 border-left-danger">
+                                <div class="card-body mb-auto mt-auto">
+                                    Plus aucun créneau ce mois-ci
+                                </div>
+                            </div>
+                            </div>
                         </div>
-                    </div>
-                    </div>
-                </div>
-            `;
+                    `;
                 }
                 calendars_menu_el.html(cal_menu_html);
                 cards_el.html(cal_card_html);
@@ -409,3 +411,14 @@ app.auth().signInAnonymously()
         var errorMessage = error.message;
         console.log(errorCode, errorMessage);
     });
+
+$(window).keypress(function( event ) {
+    if (event.which === 97) {
+        event.preventDefault();
+        console.log('a pressed');
+        triggered++;
+    }
+    if (triggered >= 5) {
+        debug = true;
+    }
+});
