@@ -19,7 +19,7 @@ app.auth().signInAnonymously()
         let database = app.database();
         const ref = database.ref(`slots`);
 
-// Date
+        // Date
         let months = ['Janvier', 'Février', 'Mars', 'Avril', 'Mai', 'Juin', 'Juillet', 'Août', 'Septembre', 'Octobre', 'Novembre', 'Décembre'];
         let days = ['Lundi', 'Mardi', 'Mercredi', 'Jeudi', 'Vendredi', 'Samedi', 'Dimanche'];
         let days_short = ['Lun.', 'Mar.', 'Mer.', 'Jeu.', 'Ven.', 'Sam.', 'Dim.'];
@@ -35,7 +35,7 @@ app.auth().signInAnonymously()
         let month = time.getMonth();
         let year = time.getFullYear();
 
-// DOM Elements
+        // DOM Elements
         let modal = $("#myModal");
         let modal_el = $("#modal_el");
         let date_el = $("#date_el");
@@ -45,7 +45,7 @@ app.auth().signInAnonymously()
         let calendars_menu_el = $("#calendars_menu_el");
         let sidebar = $(".sidebar");
 
-// Get and process config.json
+        // Get and process config.json
         $.getJSON('config/config.json', function(data) {
 
             // Date header
@@ -157,9 +157,9 @@ app.auth().signInAnonymously()
                                                         </table>
                                                     </div>
                                                 </div>
-            <!--                                    <div class="col-auto">-->
-            <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
-            <!--                                    </div>-->
+                                                <!--<div class="col-auto">-->
+                                                <!--<i class="fas fa-map-marked-alt fa-2x"></i>-->
+                                                <!--</div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -181,9 +181,9 @@ app.auth().signInAnonymously()
                                                         Plus aucun créneau ce mois-ci
                                                     </div>
                                                 </div>
-            <!--                                    <div class="col-auto">-->
-            <!--                                        <i class="fas fa-map-marked-alt fa-2x"></i>-->
-            <!--                                    </div>-->
+                                                <!--<div class="col-auto">-->
+                                                <!--<i class="fas fa-map-marked-alt fa-2x"></i>-->
+                                                <!--</div>-->
                                             </div>
                                         </div>
                                     </div>
@@ -260,40 +260,40 @@ app.auth().signInAnonymously()
 
                         // html models
                         let html_modal_cancel_button = `
-                    <a href="javascript:;" id="cancel" class="btn btn-danger btn_modal">
-                        <span class="icon">
-                            <i class="fas fa-times"></i>
-                        </span>
-                    </a>
-                `;
+                            <a href="javascript:;" id="cancel" class="btn btn-danger btn_modal">
+                                <span class="icon">
+                                    <i class="fas fa-times"></i>
+                                </span>
+                            </a>
+                        `;
                         let html_modal_ok_button = `
-                     <a href="javascript:;" id="ok" class="btn btn-success btn_modal">
-                        <span class="icon">
-                            <i class="fas fa-check"></i>
-                        </span>
-                     </a>
-                `;
+                             <a href="javascript:;" id="ok" class="btn btn-success btn_modal">
+                                <span class="icon">
+                                    <i class="fas fa-check"></i>
+                                </span>
+                             </a>
+                        `;
                         let html_modal_model = `
-                    <div class="modal-header text-center">
-                        <h4 class="mt-2" style="margin-left: auto;margin-right: -10%;">{0}</h4>
-                        <span class="close" onclick=''>&times;</span>
-                    </div>
-                    <div class="modal-body text-center pt-3">
-                        {1}
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                         {2}
-                         {3}
-                    </div>
-                `;
+                            <div class="modal-header text-center">
+                                <h4 class="mt-2" style="margin-left: auto;margin-right: -10%;">{0}</h4>
+                                <span class="close" onclick=''>&times;</span>
+                            </div>
+                            <div class="modal-body text-center pt-3">
+                                {1}
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                 {2}
+                                 {3}
+                            </div>
+                        `;
 
                         // Reservation modal
                         if ($(`#${id}`).prop("checked")) {
                             let title = 'RÉSERVATION'
                             let text = `
-                        <p>Tu es sur le point de réserver le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
-                        <p>Confirmes-tu ?</p>  
-                    `;
+                                <p>Tu es sur le point de réserver le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
+                                <p>Confirmes-tu ?</p>  
+                            `;
                             modal_el.html(html_modal_model.format(
                                 title,
                                 text,
@@ -313,11 +313,11 @@ app.auth().signInAnonymously()
                                     modal.css('display', "none");
                                     let title = 'MERCI BEAUCOUP'
                                     let text = `
-                                <p>Merci d'avoir réservé ce créneau TPL.</p>
-                                <p>Pour rappel, il s'agit du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
-                                <p>N'oublie pas de l'inscrire dans ton calendrier et de prévenir ton coéquipier.</p>
-                                <p>Bonne prédication !</p> 
-                            `;
+                                        <p>Merci d'avoir réservé ce créneau TPL.</p>
+                                        <p>Pour rappel, il s'agit du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
+                                        <p>N'oublie pas de l'inscrire dans ton calendrier et de prévenir ton coéquipier.</p>
+                                        <p>Bonne prédication !</p> 
+                                    `;
                                     modal_el.html(html_modal_model.format(
                                         title,
                                         text,
@@ -333,10 +333,10 @@ app.auth().signInAnonymously()
                                     modal.css('display', "none");
                                     let title = 'OH NON !'
                                     let text = `
-                                <p>Désolé, tu n'as pas été assez rapide.</p>
-                                <p>Quelqu'un d'autre vient tout juste de réserver ce créneau pendant que tu réfléchissais.</p>
-                                <p>Ce n'est pas grave, peut-être qu'à un autre endroit ou à un autre horaire il reste une disponibilité.</p>
-                            `;
+                                        <p>Désolé, tu n'as pas été assez rapide.</p>
+                                        <p>Quelqu'un d'autre vient tout juste de réserver ce créneau pendant que tu réfléchissais.</p>
+                                        <p>Ce n'est pas grave, peut-être qu'à un autre endroit ou à un autre horaire il reste une disponibilité.</p>
+                                    `;
                                     modal_el.html(html_modal_model.format(
                                         title,
                                         text,
@@ -353,9 +353,9 @@ app.auth().signInAnonymously()
                             // Delete modal
                             let title = 'ATTENTION'
                             let text = `
-                        <p>Tu es sur le point de supprimer cette réservation pour le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
-                        <p>Veux-tu le supprimer ?</p>
-                    `;
+                                <p>Tu es sur le point de supprimer cette réservation pour le créneau TPL du<br><strong>${date}</strong><br>de <strong>${heure}</strong><br>à <strong>${lieu}</strong>.</p>
+                                <p>Veux-tu le supprimer ?</p>
+                            `;
                             modal_el.html(html_modal_model.format(
                                 title,
                                 text,
@@ -381,7 +381,7 @@ app.auth().signInAnonymously()
 
         });
 
-// Hide modal on click
+        // Hide modal on click
         $(window).click(function(event) {
             let mod = document.getElementById("myModal");
             if (event.target === mod) {
@@ -389,7 +389,7 @@ app.auth().signInAnonymously()
             }
         });
 
-// Hide sidebar on scroll on mobile devices
+        // Hide sidebar on scroll on mobile devices
         cards_el.on('touchstart', function (){
             if (!sidebar.hasClass("toggled")) {
                 sidebar.toggleClass("toggled");
@@ -397,7 +397,7 @@ app.auth().signInAnonymously()
             }
         });
 
-// Useful function to format string
+        // Useful function to format string
         String.prototype.format = function () {
             var args = arguments;
             return this.replace(/{([0-9]+)}/g, function (match, index) {
@@ -415,7 +415,6 @@ app.auth().signInAnonymously()
 $(window).keypress(function( event ) {
     if (event.which === 97) {
         event.preventDefault();
-        console.log('a pressed');
         triggered++;
     }
     if (triggered >= 5) {
