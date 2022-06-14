@@ -62,6 +62,6 @@ Les compagnons ayant accès au site pourront réserver un créneau tout en s'ass
 Le site ne gère pas la recherche et association d'un coéquipier, ni ne possède de fonction de rappel.  
 Cela reste à la charge des compagnons.
 
-###### Astuce pour RPP
+###### Astuce pour le RPP
 
 Presser 5 fois la lettre 'a' permet de visualiser les anciennes participations.
