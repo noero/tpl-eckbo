@@ -11,6 +11,9 @@ let firebaseConfig = {
 let app = firebase.initializeApp(firebaseConfig);
 let debug = false;
 let triggered = 0;
+let alert = $(".alert")
+alert.hide();
+
 
 // Auth
 app.auth().signInAnonymously()
@@ -419,5 +422,8 @@ $(window).keypress(function( event ) {
     }
     if (triggered >= 5) {
         debug = true;
+        alert.fadeTo(2000, 500).slideUp(500, function(){
+            alert.slideUp(500);
+        });
     }
 });

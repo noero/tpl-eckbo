@@ -149,3 +149,11 @@ p, a, a>span, a>i {
 #wrapper {
     min-height: 100vh;
 }
+
+.alert {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 10;
+}
