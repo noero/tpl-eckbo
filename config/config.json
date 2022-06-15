@@ -4,69 +4,11 @@
       "name": "Jours de Marché",
       "places": [
         {
-          "id": "eck",
-          "name": "Eckbolsheim",
-          "address": "Place de la Mairie",
-          "coordinates": "",
-          "days": [ 6 ],
-          "weeks": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "hours": [
-            10,
-            11
-          ]
-        },
-        {
-          "id": "ent",
-          "name": "Entzheim",
-          "address": "Centre Ville",
-          "coordinates": "",
-          "days": [
-            3
-          ],
-          "weeks": [
-            2,
-            4
-          ],
-          "hours": [
-            16,
-            17
-          ]
-        },
-        {
           "id": "lin",
           "name": "Lingolsheim",
           "address": "Rue Maréchal Foch",
           "coordinates": "",
           "days": [
-            5
-          ],
-          "weeks": [
-            1,
-            2,
-            3,
-            4,
-            5,
-            6
-          ],
-          "hours": [
-            10,
-            11
-          ]
-        },
-        {
-          "id": "mamp",
-          "name": "Musée d'Art M. - Place",
-          "address": "Place Hans Jean Arp",
-          "coordinates": "",
-          "days": [
-            3,
             5
           ],
           "weeks": [
@@ -123,6 +65,28 @@
             10,
             11
           ]
+        },
+        {
+          "id": "mamp",
+          "name": "Musée d'Art M. - Place",
+          "address": "Place Hans Jean Arp",
+          "coordinates": "",
+          "days": [
+            3
+          ],
+          "weeks": [
+            1,
+            2,
+            3,
+            4,
+            5,
+            6
+          ],
+          "hours": [
+            9,
+            10,
+            11
+          ]
         }
       ]
     },
@@ -138,6 +102,7 @@
             1,
             2,
             4,
+            5,
             6,
             7
           ],
@@ -188,7 +153,7 @@
         {
           "id": "rdr",
           "name": "Route des Romains",
-          "address": "112 Route des Romains",
+          "address": "123 et 67 Route des Romains",
           "coordinates": "",
           "days": [
             1,
