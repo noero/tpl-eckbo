@@ -93,7 +93,7 @@ app.auth().signInAnonymously()
 
                     // Parsing places
                     for (let place of category.places) {
-                        cal_menu_html += `<a class="collapse-item hide_sidebar" href="#${place.id}_cal">${place.name}</a>`;
+                        cal_menu_html += `<a class="collapse-item hide_sidebar" onclick="scrollToJS('#${place.id}_cal')" href="javascript:;" >${place.name}</a>`;
                         let hours_html = '';
                         for (let hour of place.hours){
                             hours_html += `<th scope="col">${hour}h - ${hour + 1}h</th>`;
@@ -408,6 +408,8 @@ app.auth().signInAnonymously()
             });
         };
 
+
+
     })
     .catch((error) => {
         var errorCode = error.code;
@@ -427,3 +429,7 @@ $(window).keypress(function( event ) {
         });
     }
 });
+
+function scrollToJS(id) {
+    $('html, body').animate({scrollTop: $(`${id}`).offset().top -90 }, 'slow');
+}
