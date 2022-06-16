@@ -11,15 +11,6 @@ p, a, a>span, a>i {
     font-size: .85rem !important;
 }
 
-#calendar-container {
-    /*position: fixed;*/
-    /*top: 0;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*bottom: 0;*/
-    height: 715px;
-}
-
 .fc-header-toolbar {
     /*
     the calendar will be butting up against the edges,

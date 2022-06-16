@@ -7,3 +7,6 @@
 /.idea/sshConfigs.xml
 /.idea/TPL.iml
 /.idea/vcs.xml
+/.idea/deployment.xml
+/.idea/php.xml
+/.idea/webServers.xml
