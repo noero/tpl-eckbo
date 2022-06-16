@@ -51,10 +51,16 @@ Ajouter une authentification "Anonyme" au projet.
 }
 ```
 
-###### Configuration de la clé API
+###### Configuration de la clé API Firebase
 
 Accéder au [Google Cloud Platform](https://console.cloud.google.com) de votre compte Gmail. Dans le menu "API et services" > "Identifiants", 
 paramétrer votre API Key avec une restriction liée à votre nom de domaine (URL de provenance HTTP).
+
+###### Configuration du reCaptcha
+
+Enregistrer un site pour [Google Google reCaptcha](https://www.google.com/recaptcha/admin/create) associé votre compte Gmail.  
+Selectionner Google reCaptcha version 2 > Badge Google reCaptcha invisible et ajouter votre nom de domaine.
+Dans le fichier *__login.php__*, modifier le mot de passe du site et les clefs reCaptcha.
 
 ## Utilisation
 
