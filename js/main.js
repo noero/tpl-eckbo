@@ -11,7 +11,7 @@ let firebaseConfig = {
 let app = firebase.initializeApp(firebaseConfig);
 let debug = false;
 let triggered = 0;
-let alert = $(".alert")
+let alert = $(".alert");
 alert.hide();
 
 

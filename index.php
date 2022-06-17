@@ -175,17 +175,12 @@ if(!isset($_SESSION["loggedin"]) || $_SESSION["loggedin"] !== true){
     </a>
 
     <div id="myModal" class="modal">
-
-        <!-- Modal content -->
-        <div id="modal_el" class="modal-content rounded border-left-danger">
-        </div>
-
+        <div id="modal_el" class="modal-content rounded border-left-danger"></div>
     </div>
 
     <div class="alert alert-success" role="alert">
         Le mode RPP est activé !
     </div>
-
 
     <!-- Bootstrap core JavaScript-->
     <script src="vendor/jquery/jquery.min.js"></script>
